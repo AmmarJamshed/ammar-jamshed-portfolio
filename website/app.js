@@ -125,10 +125,25 @@
   if (sendBtn) {
     sendBtn.addEventListener("click", () => {
       const name = $("#formName")?.value || "";
-      const subject = $("#formSubject")?.value || "Portfolio inquiry";
+      const subject = $("#formSubject")?.value || "Coffee chat / career enablement";
       const message = $("#formMessage")?.value || "";
       const body = encodeURIComponent(`Name: ${name}\n\n${message}`);
       window.location.href = `mailto:ammarjamshed123@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+  }
+
+  const filters = $("#projectFilters");
+  const cards = $$("#projectGrid .project-card");
+  if (filters && cards.length) {
+    filters.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      $$(".filter-btn", filters).forEach((b) => b.classList.toggle("active", b === btn));
+      const filter = btn.dataset.filter;
+      cards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(/\s+/);
+        card.hidden = !(filter === "all" || tags.includes(filter));
+      });
     });
   }
 })();
