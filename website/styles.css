@@ -799,6 +799,16 @@ body {
   color: var(--blue-deep);
   margin-right: 0.35rem;
 }
+.cert-more {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+}
+.cert-more a {
+  color: var(--blue-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+.cert-more a:hover { text-decoration: underline; }
 .kicker-on-dark { color: var(--blue-bright); }
 .form-note {
   margin: -0.35rem 0 0.5rem;
