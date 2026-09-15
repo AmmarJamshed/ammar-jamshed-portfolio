@@ -1,4 +1,15 @@
 {
   "version": 2,
-  "outputDirectory": "website"
+  "outputDirectory": "website",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        }
+      ]
+    }
+  ]
 }
